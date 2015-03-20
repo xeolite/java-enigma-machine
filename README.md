@@ -14,14 +14,14 @@ As an example we'll use the following codebook entry for the M3 machine:
 -----------------------------------------------------------------------------
 | Tag | UKW |   Walzenlage    | Ringstellung |      Steckerverbindungen      |
 -----------------------------------------------------------------------------
-| 31  |  C  | VII   III  I    |   25 04 11   | BN DF EL HV JQ KW MZ PR SX UY |
+| 31  |  C  | VII   III  I    |   26 04 11   | BN DF EL HV JQ KW MZ PR SX UY |
 ```
 
 For the 31st day of the month, the settings are:
 
  * Reflector C
  * Rotors VII, III, I
- * Ring settings 25 (Y), 04 (D), 11 (K)
+ * Ring settings 26 (Z), 04 (D), 11 (K)
  * Plugboard connection pairs B=N, D=F etc.
 
 The 'ring settings' are an offset of each rotor's wiring in relation to the rest of the rotor body.
@@ -45,7 +45,7 @@ The machine is then put together like this:
 
 ####Encryption / decryption
 
-We can than encrypt a message. Any non-alphabetic characters are ignored.
+We can then encrypt a message. Any non-alphabetic characters are ignored.
 
 ```java
 enigma.encipher("If you want to keep a secret, you must also hide it from yourself.",

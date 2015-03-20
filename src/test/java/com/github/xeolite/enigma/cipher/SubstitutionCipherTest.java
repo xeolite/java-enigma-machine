@@ -7,17 +7,17 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class SubstitutionCipherTest {
-	
-	private static final String ALPHABET = "EKMFLGDQVZNTOWYHXUSPAIBRCJ";
 
-	@Test
-	public void substitutesLetter() {
-		SubstitutionCipher substitution = new SubstitutionCipher(ALPHABET);
-		assertThat(substitution.encipher(A), is(E));
-	}
-	
-	@Test
-	public void substitutesInverse() {
+    private static final String ALPHABET = "EKMFLGDQVZNTOWYHXUSPAIBRCJ";
+
+    @Test
+    public void substitutesLetter() {
+        SubstitutionCipher substitution = new SubstitutionCipher(ALPHABET);
+        assertThat(substitution.encipher(A), is(E));
+    }
+
+    @Test
+    public void substitutesInverse() {
         Cipher substitution = Cipher.inverse(new SubstitutionCipher(ALPHABET));
         assertThat(substitution.encipher(E), is(A));
     }

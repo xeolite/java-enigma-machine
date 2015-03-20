@@ -13,18 +13,18 @@ public class RotorTest {
 
     private static final Cipher CIPHER = new SubstitutionCipher("KRNDEFGCIZWYMBOPQJHTUVAXLS");
 
-	@Test
-	public void enciphersInbound() {
+    @Test
+    public void enciphersInbound() {
         Rotor rotor = new Rotor(CIPHER, Letter.A, new NotchRing());
         assertThat(rotor.inbound().encipher(Letter.A), is(Letter.K));
     }
 
     @Test
-	public void enciphersInboundWithRotation()  {
+    public void enciphersInboundWithRotation()  {
         Rotor rotor = new Rotor(CIPHER, Letter.A, new NotchRing());
-		rotor.setRotation(Letter.B);
-		assertThat(rotor.inbound().encipher(Letter.A), is(Letter.Q));
-	}
+        rotor.setRotation(Letter.B);
+        assertThat(rotor.inbound().encipher(Letter.A), is(Letter.Q));
+    }
 
     @Test
     public void enciphersInboundWithSetting()  {
@@ -40,17 +40,17 @@ public class RotorTest {
     }
 
     @Test
-	public void enciphersOutbound()  {
+    public void enciphersOutbound()  {
         Rotor rotor = new Rotor(CIPHER, Letter.A, new NotchRing());
-		assertThat(rotor.outbound().encipher(Letter.R), is(Letter.B));
-	}
-	
-	@Test
-	public void enciphersOutboundWithRotation()  {
+        assertThat(rotor.outbound().encipher(Letter.R), is(Letter.B));
+    }
+
+    @Test
+    public void enciphersOutboundWithRotation()  {
         Rotor rotor = new Rotor(CIPHER, Letter.A, new NotchRing());
-		rotor.setRotation(Letter.B);
-		assertThat(rotor.outbound().encipher(Letter.R), is(Letter.Y));
-	}
+        rotor.setRotation(Letter.B);
+        assertThat(rotor.outbound().encipher(Letter.R), is(Letter.Y));
+    }
 
     @Test
     public void enciphersOutboundWithSetting()  {

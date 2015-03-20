@@ -10,16 +10,16 @@ import com.github.xeolite.enigma.step.LeverGroup;
 
 public class EnigmaM4 extends Enigma {
 
-	public EnigmaM4(ThinReflector reflector,
-					ThinRotor fourthRotor,
-					StandardRotor leftRotor,
-					StandardRotor centreRotor,
-					StandardRotor rightRotor,
-					Plugboard plugboard) {
-		
-		super(new EnigmaMechanism(reflector, new RotorGroup(fourthRotor, leftRotor, centreRotor, rightRotor), new LeverGroup(), Stator.MILITARY, plugboard));
-	}
-	
-	
-	
+    public EnigmaM4(ThinReflector reflector,
+                    ThinRotor fourthRotor,
+                    StandardRotor leftRotor,
+                    StandardRotor centreRotor,
+                    StandardRotor rightRotor,
+                    Plugboard plugboard) {
+
+        super(new EnigmaMechanism(reflector, new RotorGroup(fourthRotor, leftRotor, centreRotor, rightRotor), new LeverGroup(), Stator.MILITARY, plugboard));
+    }
+
+
+
 }

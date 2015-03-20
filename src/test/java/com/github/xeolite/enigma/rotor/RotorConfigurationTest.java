@@ -8,9 +8,9 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class RotorConfigurationTest {
-	
-	@Test
-	public void configuresRingSetting() {
+
+    @Test
+    public void configuresRingSetting() {
         RotorConfiguration configuration = new RotorConfiguration(StandardRotor::new, "STCDEFGHIJKLMNOPQRBAUVWXYZ");
         Rotor rotor = configuration.withSetting(Letter.B).startAt(Letter.A);
         assertThat(rotor.inbound().encipher(Letter.C), is(Letter.U));

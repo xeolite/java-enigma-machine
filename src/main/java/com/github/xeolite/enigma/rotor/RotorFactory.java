@@ -5,7 +5,7 @@ import com.github.xeolite.enigma.cipher.Cipher;
 
 @FunctionalInterface
 public interface RotorFactory<R extends Rotor> {
-	
-	R create(Cipher cipher, Letter ringSetting, NotchRing notchRing);
-	
+
+    R create(Cipher cipher, Letter ringSetting, NotchRing notchRing);
+
 }

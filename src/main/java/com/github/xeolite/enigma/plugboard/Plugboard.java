@@ -24,7 +24,7 @@ public class Plugboard implements Cipher {
     }
 
     public void clear() {
-        this.board = Stream.of(Letter.values()).toArray(Letter[]::new);
+        this.board = Letter.values();
     }
 
     private void swap(Letter from, Letter to) {
@@ -39,7 +39,7 @@ public class Plugboard implements Cipher {
     private void checkFree(Letter... positions) {
         for (Letter position : positions) {
             if(!board[position.index()].equals(position)) {
-                throw new IllegalStateException(String.format("Position %s is already connected", position.toString()));
+                throw new IllegalStateException(String.format("Position %s is already connected", position));
             }
         }
     }

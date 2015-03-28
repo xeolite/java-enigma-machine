@@ -25,7 +25,7 @@ This tells us for the 31st day of the month, the settings are:
  * Plugboard connection pairs B=N, D=F etc.
 
 The 'ring settings' are an offset of each rotor's wiring in relation to the rest of the rotor body
-and we can be set them by number (they begin at 1) or letter (setting 1 is A).
+and we can set them by number (they begin at 1) or letter (setting 1 is A).
 The operators could then choose their own start positions for the rotors.
 Let's choose a start position for the three rotors with X, E and O facing upward in the machine.
 The machine is then put together like this:

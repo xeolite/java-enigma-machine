@@ -17,9 +17,9 @@ public class EnigmaM3Test {
 
         EnigmaM3 enigma = new EnigmaM3(
                 StandardReflector.C,
-                StandardRotor.I.withSetting(M).startAt(P),
-                StandardRotor.II.withSetting(J).startAt(D),
-                StandardRotor.III.withSetting(H).startAt(T),
+                StandardRotor.I.withSetting(13).startAt(P),
+                StandardRotor.II.withSetting(10).startAt(D),
+                StandardRotor.III.withSetting(8).startAt(T),
                 new Plugboard()
                         .connect(A, U)
                         .connect(F, O)

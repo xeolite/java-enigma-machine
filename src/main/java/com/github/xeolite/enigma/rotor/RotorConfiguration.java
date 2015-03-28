@@ -25,6 +25,10 @@ public class RotorConfiguration<R extends Rotor> {
         return new RotorConfiguration<R>(factory, alphabet, setting, notchRing);
     }
 
+    public RotorConfiguration<R> withSetting(int setting) {
+        return withSetting(Letter.forIndex(setting-1));
+    }
+
     public R startAt(Letter position) {
         R rotor = factory.create(new SubstitutionCipher(alphabet), ringSetting, notchRing);
         rotor.setRotation(position);

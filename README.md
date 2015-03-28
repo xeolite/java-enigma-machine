@@ -17,14 +17,15 @@ As an example we'll use the following codebook entry for the M3 machine:
 | 31  |  C  | VII   III  I    |   26 04 11   | BN DF EL HV JQ KW MZ PR SX UY |
 ```
 
-This tells us that for the 31st day of the month, the settings are:
+This tells us for the 31st day of the month, the settings are:
 
  * Reflector C
  * Rotors VII, III, I
- * Ring settings 26 (Z), 04 (D), 11 (K)
+ * Ring settings 26 (Z), 4 (D), 11 (K)
  * Plugboard connection pairs B=N, D=F etc.
 
-The 'ring settings' are an offset of each rotor's wiring in relation to the rest of the rotor body.
+The 'ring settings' are an offset of each rotor's wiring in relation to the rest of the rotor body
+and we can be set them by number (they begin at 1) or letter (setting 1 is A).
 The operators could then choose their own start positions for the rotors.
 Let's choose a start position for the three rotors with X, E and O facing upward in the machine.
 The machine is then put together like this:
@@ -32,9 +33,9 @@ The machine is then put together like this:
 ```java
     Enigma enigma = new EnigmaM3(
             StandardReflector.C,
-            StandardRotor.VII.withSetting(Letter.Z).startAt(Letter.X),
-            StandardRotor.III.withSetting(D).startAt(E),
-            StandardRotor.I.withSetting(K).startAt(O),
+            StandardRotor.VII.withSetting(26).startAt(Letter.X),
+            StandardRotor.III.withSetting(4).startAt(E),
+            StandardRotor.I.withSetting(11).startAt(O),
             new Plugboard()
                     .connect(B, N).connect(D, F).connect(E, L)
                     .connect(H, V).connect(J, Q).connect(K, W)
@@ -51,11 +52,13 @@ as Enigma only supports the characters A-Z.
 
 ```java
 enigma.encipher("If you want to keep a secret, you must also hide it from yourself.",
-        OutputStyle.groupsOf(5));
+        OutputStyle.groupsOf(5).groupsPerLine(4));
 ```
 Which gives us
 ```
-MQQWF AYPYF FYXWZ TJFIW USLMX JHMDC FULVX TVBCG UTAXE AJPLU D
+MQQWF AYPYF FYXWZ TJFIW
+USLMX JHMDC FULVX TVBCG
+UTAXE AJPLU D
 ```
 
 Decrypting the message requires it to be input to a machine in exactly the same starting state as the machine that encrypted it and then
@@ -68,7 +71,7 @@ IFYOUWANTTOKEEPASECRETYOUMUSTALSOHIDEITFROMYOURSELF
 ```
 
 
-The M4 variant adds a thin fourth rotor to the machine by combining this with a special thin reflector, so that it is configured like this:
+The M4 variant added a thin fourth rotor to the machine by combining this with a special thin reflector, so that it is configured like this:
 
 ```java
     Enigma enigma = new EnigmaM4(
@@ -86,8 +89,8 @@ Encryption and decryption are performed in the same way as for the M3.
 
 ####Custom components
 
-Custom rotors and reflectors can also be created. The cipher used by these components can be represented using a string of 26 letters,
-such that its first letter will be the result of enciphering A, the second of enciphering B, etc., as commonly used in Enigma
+Custom rotors and reflectors can be created. The cipher used by these components can be represented by a string of 26 letters,
+such that its first letter is the result of enciphering A, the second of enciphering B, etc., as commonly used in Enigma
 descriptions.
 
 Reflectors can be created in this way:

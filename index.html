@@ -31,20 +31,15 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1>
-<a id="x-enigma" class="anchor" href="#x-enigma" aria-hidden="true"><span class="octicon octicon-link"></span></a>x-enigma</h1>
-
-<p>The Enigma cipher machine, written in Java 8.</p>
-
-<ul>
+        <ul>
 <li>M3 and M4 military variants implemented</li>
 <li>Support for all machine settings</li>
 <li>Support for creating custom rotors, reflectors and machines</li>
 <li>Formatted output</li>
 </ul>
 
-<h4>
-<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h4>
+<h3>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h3>
 
 <p>As an example we'll use the following codebook entry for the M3 machine:</p>
 
@@ -80,13 +75,14 @@ The machine is then put together like this:</p>
                     .connect(<span class="pl-smi">M</span>, <span class="pl-smi">Z</span>)<span class="pl-k">.</span>connect(<span class="pl-smi">P</span>, <span class="pl-smi">R</span>)<span class="pl-k">.</span>connect(<span class="pl-smi">S</span>, <span class="pl-smi">X</span>)
                     .connect(<span class="pl-smi">U</span>, <span class="pl-smi">Y</span>));</pre></div>
 
-<h4>
-<a id="encryption--decryption" class="anchor" href="#encryption--decryption" aria-hidden="true"><span class="octicon octicon-link"></span></a>Encryption / decryption</h4>
+<h3>
+<a id="encryption--decryption" class="anchor" href="#encryption--decryption" aria-hidden="true"><span class="octicon octicon-link"></span></a>Encryption / decryption</h3>
 
 <p>Now we're ready to encrypt a message. The encryption is case-insensitive and any non-alphabetic characters are ignored
 as Enigma only supports the characters A-Z.</p>
 
-<div class="highlight highlight-java"><pre>enigma<span class="pl-k">.</span>encipher(<span class="pl-s"><span class="pl-pds">"</span>If you want to keep a secret, you must also hide it from yourself.<span class="pl-pds">"</span></span>,
+<div class="highlight highlight-java"><pre>enigma<span class="pl-k">.</span>encipher(
+        <span class="pl-s"><span class="pl-pds">"</span>If you want to keep a secret, you must also hide it from yourself.<span class="pl-pds">"</span></span>,
         <span class="pl-smi">OutputStyle</span><span class="pl-k">.</span>groupsOf(<span class="pl-c1">5</span>)<span class="pl-k">.</span>groupsPerLine(<span class="pl-c1">4</span>));</pre></div>
 
 <p>Which gives us</p>
@@ -119,8 +115,8 @@ UTAXE AJPLU D
 
 <p>Encryption and decryption are performed in the same way as for the M3.</p>
 
-<h4>
-<a id="custom-components" class="anchor" href="#custom-components" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom components</h4>
+<h3>
+<a id="custom-components" class="anchor" href="#custom-components" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom components</h3>
 
 <p>Custom rotors and reflectors can be created. The cipher used by these components can be represented by a string of 26 letters,
 such that its first letter is the result of enciphering A, the second of enciphering B, etc., as commonly used in Enigma
@@ -132,8 +128,10 @@ descriptions.</p>
 
 <p>Rotors are most easily defined by creating a reusable RotorConfiguration with the cipher alphabet and the turnover positions:</p>
 
-<div class="highlight highlight-java"><pre><span class="pl-k">RotorConfiguration&lt;<span class="pl-smi">StandardRotor</span>&gt;</span> <span class="pl-c1">X1</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">RotorConfiguration&lt;&gt;</span>(<span class="pl-smi">StandardRotor</span><span class="pl-k">::</span><span class="pl-k">new</span>,
-        "MIBPUYDQTXKWRFSCJAZEVHNOLG", Letter.M, Letter.B);
+<div class="highlight highlight-java"><pre><span class="pl-k">RotorConfiguration&lt;<span class="pl-smi">StandardRotor</span>&gt;</span> <span class="pl-c1">X1</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">RotorConfiguration&lt;&gt;</span>(
+        <span class="pl-smi">StandardRotor</span><span class="pl-k">::</span><span class="pl-k">new</span>,
+        "MIBPUYDQTXKWRFSCJAZEVHNOLG",
+        Letter.M, Letter.B);
 
 <span class="pl-smi">StandardRotor</span> left <span class="pl-k">=</span> <span class="pl-c1">X1</span><span class="pl-k">.</span>withSetting(<span class="pl-smi">Letter</span><span class="pl-k">.</span><span class="pl-smi">D</span>)<span class="pl-k">.</span>startAt(<span class="pl-smi">Letter</span><span class="pl-k">.</span><span class="pl-smi">R</span>);</pre></div>
 

@@ -20,16 +20,4 @@ public class OutputStyleTest {
         assertThat(out.toString(), is("ABCDEFGHIJK"));
     }
 
-    @Test
-    public void createsGroupedOutput() {
-        OutputStyle outputStyle = OutputStyle.groupsOf(3);
-        StringBuilder out = new StringBuilder();
-
-        for (Letter letter : Letter.valuesOf("ABCDEFGHIJK")) {
-            outputStyle.append(out, letter);
-        }
-
-        assertThat(out.toString(), is("ABC DEF GHI JK"));
-    }
-
 }

@@ -11,11 +11,11 @@ public class StatorTest {
 
     @Test
     public void enciphersInbound() {
-        assertThat(Stator.COMMERCIAL.inbound().encipher(Letter.Q), is(Letter.A));
+        assertThat(Stator.MILITARY.inbound().encipher(Letter.Q), is(Letter.Q));
     }
 
     @Test
     public void enciphersOutbound() {
-        assertThat(Stator.COMMERCIAL.outbound().encipher(Letter.A), is(Letter.Q));
+        assertThat(Stator.MILITARY.outbound().encipher(Letter.A), is(Letter.A));
     }
 }

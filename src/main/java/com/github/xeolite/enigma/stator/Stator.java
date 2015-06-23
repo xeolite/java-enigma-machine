@@ -6,7 +6,6 @@ import com.github.xeolite.enigma.cipher.SubstitutionCipher;
 public class Stator {
 
     public static final Stator MILITARY = new Stator(new SubstitutionCipher("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
-    public static final Stator COMMERCIAL = new Stator(Cipher.inverse(new SubstitutionCipher("QWERTZUIOASDFGHJKPYXCVBNML")));
 
     private Cipher inboundCipher;
     private Cipher outboundCipher;

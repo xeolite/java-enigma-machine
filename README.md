@@ -1,5 +1,5 @@
-x-enigma
-========
+enigma
+======
 
 The Enigma cipher machine, written in Java 8.
 
@@ -8,7 +8,7 @@ The Enigma cipher machine, written in Java 8.
  * Support for creating custom rotors, reflectors and machines
  * Formatted output
 
-####Configuration
+#### Configuration
 As an example we'll use the following codebook entry for the M3 machine:
 ```
 ------------------------------------------------------------------------------
@@ -44,7 +44,7 @@ The machine is then put together like this:
 ```
 
 
-####Encryption / decryption
+#### Encryption / decryption
 
 Now we're ready to encrypt a message. The encryption is case-insensitive and any non-alphabetic characters are ignored
 as Enigma only supports the characters A-Z.
@@ -87,7 +87,7 @@ The M4 variant added a thin fourth rotor to the machine by combining this with a
 Encryption and decryption are performed in the same way as for the M3.
 
 
-####Custom components
+#### Custom components
 
 Custom rotors and reflectors can be created. The cipher used by these components can be represented by a string of 26 letters,
 such that its first letter is the result of enciphering A, the second of enciphering B, etc., as commonly used in Enigma

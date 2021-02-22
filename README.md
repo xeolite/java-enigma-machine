@@ -1,7 +1,7 @@
 enigma
 ======
 
-The Enigma cipher machine, written in Java 8.
+The Enigma cipher machine, written in Java.
 
  * M3 and M4 military variants implemented
  * Support for all machine settings

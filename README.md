@@ -1,5 +1,5 @@
-enigma
-======
+java-enigma-machine
+===================
 
 The Enigma cipher machine, written in Java.
 
